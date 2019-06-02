@@ -1,0 +1,17 @@
+version: 2
+jobs:
+  deploy_dev:
+    docker:
+      - image: circleci/node:10.7
+    working_directory: ~/portfolio-library
+    steps:
+      - checkout
+      - run:
+          name: package install
+          command: yarn install
+      - run:
+          name: build
+          command: yarn run build
+      - run:
+          name: deploy to Firebase Hosting
+          command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
