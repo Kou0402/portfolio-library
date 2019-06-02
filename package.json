@@ -14,31 +14,32 @@
     "test": "jest"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.5.3",
     "cross-env": "^5.2.0",
-    "nuxt": "^2.8.0",
-    "@nuxtjs/axios": "^5.5.3"
+    "nuxt": "^2.8.0"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1",
     "@nuxtjs/eslint-config": "^0.0.1",
+    "@vue/test-utils": "^1.0.0-beta.27",
+    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.8.0",
     "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
     "eslint-config-standard": ">=12.0.0",
+    "eslint-loader": "^2.1.2",
     "eslint-plugin-import": ">=2.17.3",
     "eslint-plugin-jest": ">=22.6.4",
     "eslint-plugin-node": ">=9.1.0",
     "eslint-plugin-nuxt": ">=0.4.3",
+    "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-promise": ">=4.1.1",
     "eslint-plugin-standard": ">=4.0.0",
-    "eslint-loader": "^2.1.2",
     "eslint-plugin-vue": "^5.2.2",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "prettier": "^1.17.1",
-    "@vue/test-utils": "^1.0.0-beta.27",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^24.8.0",
+    "firebase-tools": "^6.10.0",
     "jest": "^24.8.0",
+    "nodemon": "^1.19.1",
+    "prettier": "^1.17.1",
     "vue-jest": "^3.0.4"
   }
 }
