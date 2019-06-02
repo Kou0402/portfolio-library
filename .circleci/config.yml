@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  deploy_dev:
+  build:
     docker:
       - image: circleci/node:10.7
     working_directory: ~/portfolio-library
