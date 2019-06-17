@@ -36,7 +36,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/firebase'],
 
   /*
    ** Nuxt.js modules
@@ -44,7 +44,8 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/dotenv'
   ],
   /*
    ** Axios module configuration

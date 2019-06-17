@@ -9,6 +9,16 @@ jobs:
       - run:
           name: package install
           command: yarn install
+       - run:
+          name: Add env
+          command: |
+            echo "API_KEY=$API_KEY" > .env
+            echo "AUTH_DOMAIN=$AUTH_DOMAIN" >> .env
+            echo "DATABASE_URL=$DATABASE_URL" >> .env
+            echo "PROJECT_ID=$PROJECT_ID" >> .env
+            echo "STORAGE_BUCKET=$STORAGE_BUCKET" >> .env
+            echo "MESSAGING_SENDER_ID=$MESSAGING_SENDER_ID" >> .env
+            echo "APP_ID=$APP_ID" >> .env
       - run:
           name: build
           command: yarn run build
