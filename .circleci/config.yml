@@ -9,7 +9,7 @@ jobs:
       - run:
           name: package install
           command: yarn install
-       - run:
+      - run:
           name: Add env
           command: |
             echo "API_KEY=$API_KEY" > .env
