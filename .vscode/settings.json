@@ -13,5 +13,9 @@
     "configFile": ".eslintrc.js"
   },
   "editor.formatOnSave": false,
-  "eslint.autoFixOnSave": true
+  "eslint.autoFixOnSave": true,
+
+  // Editor setting
+  "editor.rulers": [80, 100],
+
 }

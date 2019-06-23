@@ -17,6 +17,7 @@ module.exports = {
   plugins: ['prettier'],
   // add your custom rules here
   rules: {
-    'no-console': 1
+    'no-console': 1,
+    "max-len": [1, 100, 2]
   }
 }
