@@ -1,11 +1,20 @@
 <template>
-  <a class="portfolio-card">
+  <a :href="portfolioUrl" class="portfolio-card">
     <div class="portfolio-card-image"></div>
     <p class="portfolio-card-description"></p>
   </a>
 </template>
 
-<script></script>
+<script>
+export default {
+  props: {
+    portfolioUrl: {
+      type: String,
+      default: ''
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .portfolio-card {
