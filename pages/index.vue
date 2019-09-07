@@ -5,6 +5,8 @@
         v-for="item in portfolioData"
         :key="item.id"
         :portfolio-url="item.portfolioURL"
+        :portfolio-description="item.portfolioDescription"
+        :portfolio-capture="item.portfolioCapture"
       ></PortfolioCard>
     </section>
     <section>
@@ -39,6 +41,7 @@ export default {
           tempPortfolioData.id = documents.id
           tempPortfolioData.portfolioDescription = document.portfolioDescription
           tempPortfolioData.portfolioURL = document.portfolioURL
+          tempPortfolioData.portfolioCapture = document.portfolioCapture
           portfolioData.push(tempPortfolioData)
         })
         console.log(portfolioData)

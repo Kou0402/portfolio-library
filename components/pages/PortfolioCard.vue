@@ -1,7 +1,8 @@
 <template>
   <a :href="portfolioUrl" class="portfolio-card">
-    <div class="portfolio-card-image"></div>
-    <p class="portfolio-card-description"></p>
+    <div class=""></div>
+    <img class="portfolio-card-image" :src="portfolioCapture" />
+    <p class="portfolio-card-description">{{ portfolioDescription }}</p>
   </a>
 </template>
 
@@ -9,6 +10,14 @@
 export default {
   props: {
     portfolioUrl: {
+      type: String,
+      default: ''
+    },
+    portfolioDescription: {
+      type: String,
+      default: ''
+    },
+    portfolioCapture: {
       type: String,
       default: ''
     }
