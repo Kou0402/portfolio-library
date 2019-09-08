@@ -9,9 +9,6 @@
         :portfolio-capture="item.portfolioCapture"
       ></PortfolioCard>
     </section>
-    <section>
-      <router-link to="post" class="link">投稿</router-link>
-    </section>
   </main>
 </template>
 

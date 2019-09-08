@@ -10,6 +10,8 @@
       <input type="file" accept="image/*" @change="setFile" />
     </form>
     <router-link to="/" class="link">戻る</router-link>
+    <!-- <p>{{ user.email }}でログイン中</p> -->
+    <button @click="logOut">ログアウト</button>
   </main>
 </template>
 
@@ -58,6 +60,10 @@ export default {
       const selectFile = e.target.files
       fileName = selectFile[0].name
       selectFileObjct = new File(selectFile, { type: 'image/jpeg' })
+    },
+    logOut() {
+      firebase.auth().signOut()
+      this.$router.push('/')
     }
   }
 }
