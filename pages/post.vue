@@ -22,10 +22,11 @@ const db = firebase.firestore()
 
 const uid = firebase.auth().currentUser.uid
 
+let docId
+
 const storage = firebase.storage()
 const storageRef = storage.ref('images/')
 let selectFileObjct
-let fileName
 
 export default {
   data() {
@@ -34,18 +35,40 @@ export default {
       portfolioURL: ''
     }
   },
+  mounted() {
+    const self = this
+    console.log(uid)
+    db.collection('portfolio')
+      .where('uid', '==', uid)
+      .get()
+      .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          self.portfolioDescription = doc.data().portfolioDescription
+          self.portfolioURL = doc.data().portfolioURL
+          docId = doc.id
+          console.log('id=' + docId)
+        })
+      })
+  },
   methods: {
     async postPortfolio() {
-      const uploadRef = storageRef.child(fileName)
-      const uploadRes = await uploadRef.put(selectFileObjct)
-      console.log(uploadRes.state)
-      const getUrlRes = await uploadRef.getDownloadURL()
-      console.log(getUrlRes)
-      const captureUrl = getUrlRes
-
-      const dbUpdateRes = await db
-        .collection('portfolio')
-        .add({
+      let captureUrl = ''
+      if (selectFileObjct) {
+        const uploadRef = storageRef.child(uid)
+        const uploadRes = await uploadRef.put(selectFileObjct)
+        console.log(uploadRes.state)
+        const getUrlRes = await uploadRef.getDownloadURL()
+        console.log(getUrlRes)
+        captureUrl = getUrlRes
+      }
+      let dbUpdateRes
+      if (docId) {
+        dbUpdateRes = db.collection('portfolio').doc(docId)
+      } else {
+        dbUpdateRes = db.collection('portfolio').doc()
+      }
+      await dbUpdateRes
+        .set({
           uid: uid,
           portfolioURL: this.portfolioURL,
           portfolioDescription: this.portfolioDescription,
@@ -61,7 +84,6 @@ export default {
     },
     setFile(e) {
       const selectFile = e.target.files
-      fileName = selectFile[0].name
       selectFileObjct = new File(selectFile, { type: 'image/jpeg' })
     },
     logOut() {
