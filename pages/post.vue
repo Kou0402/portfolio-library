@@ -20,6 +20,8 @@ import firebase from '~/plugins/firebase.js'
 
 const db = firebase.firestore()
 
+const uid = firebase.auth().currentUser.uid
+
 const storage = firebase.storage()
 const storageRef = storage.ref('images/')
 let selectFileObjct
@@ -44,10 +46,11 @@ export default {
       const dbUpdateRes = await db
         .collection('portfolio')
         .add({
-          createdAt: new Date(),
-          portfolioDescription: this.portfolioDescription,
+          uid: uid,
           portfolioURL: this.portfolioURL,
-          portfolioCapture: captureUrl
+          portfolioDescription: this.portfolioDescription,
+          portfolioCapture: captureUrl,
+          createdAt: new Date()
         })
         .catch(err => {
           console.error('Error: Add Document', err)
