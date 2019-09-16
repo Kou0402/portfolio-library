@@ -1,7 +1,38 @@
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write;
+
+    match /portfolio /{portfolioId} {
+      allow read;
+      allow create: if isLoginUser() && validateUrl() && validateDescription()
+      allow update: if isCreateUser() && validateUrl() && validateDescription()
+    }
+
+    function isLoginUser() {
+    	return request.auth != null
+    }
+    function isCreateUser() {
+    	return request.auth.uid == resource.data.uid
+    }
+
+    function getIncomingData() {
+    	return request.resource.data
+    }
+    function validateLength(text, max) {
+    	return text.size() <= max
+    }
+
+    function getUrl() {
+    	return getIncomingData().url
+    }
+    function validateUrl() {
+    	return validateLength(getUrl(), 2000)
+    }
+
+    function getDescription() {
+    	return getIncomingData().description
+    }
+    function validateDescription() {
+    	return validateLength(getDescription(), 60)
     }
   }
 }
