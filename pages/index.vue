@@ -4,9 +4,9 @@
       <PortfolioCard
         v-for="item in portfolioData"
         :key="item.id"
-        :portfolio-url="item.portfolioURL"
-        :portfolio-description="item.portfolioDescription"
-        :portfolio-capture="item.portfolioCapture"
+        :portfolio-url="item.url"
+        :portfolio-description="item.description"
+        :portfolio-capture="item.captureUrl"
       ></PortfolioCard>
     </section>
   </main>
@@ -14,10 +14,6 @@
 
 <script>
 import PortfolioCard from '~/components/pages/PortfolioCard.vue'
-import firebase from '~/plugins/firebase.js'
-
-const db = firebase.firestore()
-const portfolioData = []
 
 export default {
   components: {
@@ -25,27 +21,12 @@ export default {
   },
   data() {
     return {
-      portfolioData
+      portfolioData: []
     }
   },
-  mounted() {
-    db.collection('portfolio')
-      .get()
-      .then(query => {
-        query.forEach(documents => {
-          const document = documents.data()
-          const tempPortfolioData = {}
-          tempPortfolioData.id = documents.id
-          tempPortfolioData.portfolioDescription = document.description
-          tempPortfolioData.portfolioURL = document.url
-          tempPortfolioData.portfolioCapture = document.captureUrl
-          portfolioData.push(tempPortfolioData)
-        })
-        console.log(portfolioData)
-      })
-      .catch(error => {
-        console.log(`データの取得に失敗しました (${error})`)
-      })
+  async created() {
+    await this.$store.dispatch('portfolio/fetchPortfolios')
+    this.portfolioData = this.$store.getters['portfolio/portfolios']
   }
 }
 </script>
