@@ -70,9 +70,9 @@ export default {
       await dbUpdateRes
         .set({
           uid: uid,
-          portfolioURL: this.portfolioURL,
-          portfolioDescription: this.portfolioDescription,
-          portfolioCapture: captureUrl,
+          url: this.portfolioURL,
+          description: this.portfolioDescription,
+          captureUrl: captureUrl,
           createdAt: new Date()
         })
         .catch(err => {
