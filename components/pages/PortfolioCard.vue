@@ -1,23 +1,23 @@
 <template>
-  <a :href="portfolioUrl" class="portfolio-card">
+  <a :href="url" class="portfolio-card">
     <div class=""></div>
-    <img class="portfolio-card-image" :src="portfolioCapture" />
-    <p class="portfolio-card-description">{{ portfolioDescription }}</p>
+    <img class="portfolio-card-image" :src="captureUrl" />
+    <p class="portfolio-card-description">{{ description }}</p>
   </a>
 </template>
 
 <script>
 export default {
   props: {
-    portfolioUrl: {
+    url: {
       type: String,
       default: ''
     },
-    portfolioDescription: {
+    description: {
       type: String,
       default: ''
     },
-    portfolioCapture: {
+    captureUrl: {
       type: String,
       default: ''
     }

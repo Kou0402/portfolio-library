@@ -4,9 +4,9 @@
       <PortfolioCard
         v-for="item in portfolioData"
         :key="item.id"
-        :portfolio-url="item.url"
-        :portfolio-description="item.description"
-        :portfolio-capture="item.captureUrl"
+        :url="item.url"
+        :description="item.description"
+        :capture-url="item.captureUrl"
       ></PortfolioCard>
     </section>
   </main>
