@@ -43,8 +43,8 @@ export default {
       .get()
       .then(function(querySnapshot) {
         querySnapshot.forEach(function(doc) {
-          self.portfolioDescription = doc.data().portfolioDescription
-          self.portfolioURL = doc.data().portfolioURL
+          self.portfolioDescription = doc.data().description
+          self.portfolioURL = doc.data().url
           docId = doc.id
           console.log('id=' + docId)
         })
