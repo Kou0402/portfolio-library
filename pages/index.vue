@@ -36,9 +36,9 @@ export default {
           const document = documents.data()
           const tempPortfolioData = {}
           tempPortfolioData.id = documents.id
-          tempPortfolioData.portfolioDescription = document.portfolioDescription
-          tempPortfolioData.portfolioURL = document.portfolioURL
-          tempPortfolioData.portfolioCapture = document.portfolioCapture
+          tempPortfolioData.portfolioDescription = document.description
+          tempPortfolioData.portfolioURL = document.url
+          tempPortfolioData.portfolioCapture = document.captureUrl
           portfolioData.push(tempPortfolioData)
         })
         console.log(portfolioData)
