@@ -36,7 +36,7 @@ export default {
       user: []
     }
   },
-  mounted: function() {
+  created: function() {
     firebase.auth().onAuthStateChanged(user => {
       this.isWaiting = false
       if (user) {
