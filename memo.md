@@ -25,3 +25,9 @@ db.collection("hoge").where("foo", "==", true)
         });
     })
 ```
+## モジュールモードでのstoreアクセス
+
+### ハッシュキーを指定して呼び出す
+```
+this.$store.getters['hogeFile/hoge']
+```
