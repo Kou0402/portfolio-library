@@ -17,7 +17,6 @@
           <button @click="googleLogin">Googleでログイン</button>
         </div>
         <div v-else>
-          <p>{{ user.email }}でログイン中</p>
           <button @click="logOut">ログアウト</button>
         </div>
       </div>
@@ -32,8 +31,7 @@ export default {
   data() {
     return {
       isWaiting: true,
-      isLogin: false,
-      user: []
+      isLogin: false
     }
   },
   created: function() {
@@ -41,11 +39,9 @@ export default {
       this.isWaiting = false
       if (!user) {
         this.isLogin = false
-        this.user = []
         return user
       }
       this.isLogin = true
-      this.user = user
       this.$router.push('/post')
     })
   },
