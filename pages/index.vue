@@ -24,7 +24,7 @@ export default {
       portfolioData: []
     }
   },
-  created: async function() {
+  async created() {
     await this.$store.dispatch('portfolio/fetchPortfolios')
     this.portfolioData = this.$store.getters['portfolio/portfolios']
   }

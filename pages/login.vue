@@ -34,7 +34,7 @@ export default {
       isLogin: false
     }
   },
-  created: function() {
+  created() {
     firebase.auth().onAuthStateChanged(user => {
       this.isWaiting = false
       if (!user) {
