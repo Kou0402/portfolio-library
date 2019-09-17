@@ -17,14 +17,10 @@
 <script>
 import firebase from '~/plugins/firebase.js'
 
-const db = firebase.firestore()
-
 const uid = firebase.auth().currentUser.uid
 
 let docId
 
-const storage = firebase.storage()
-const storageRef = storage.ref('images/')
 let selectFileObjct
 
 export default {
@@ -34,52 +30,40 @@ export default {
       url: ''
     }
   },
-  created() {
-    const self = this
-    console.log(uid)
-    db.collection('portfolio')
-      .where('uid', '==', uid)
-      .get()
-      .then(function(querySnapshot) {
-        querySnapshot.forEach(function(doc) {
-          self.description = doc.data().description
-          self.url = doc.data().url
-          docId = doc.id
-          console.log('id=' + docId)
-        })
-      })
+  async created() {
+    await this.$store.dispatch('portfolio/fetchPortfolio', uid)
+    const portfolioData = this.$store.getters['portfolio/portfolio']
+    this.description = portfolioData.description
+    this.url = portfolioData.url
+    docId = portfolioData.docId
   },
   methods: {
     async postPortfolio() {
       let captureUrl = ''
       if (selectFileObjct) {
-        const uploadRef = storageRef.child(uid)
-        const uploadRes = await uploadRef.put(selectFileObjct)
-        console.log(uploadRes.state)
-        const getUrlRes = await uploadRef.getDownloadURL()
-        console.log(getUrlRes)
-        captureUrl = getUrlRes
+        captureUrl = await this.uploadCapture()
       }
-      let dbUpdateRes
+      const portfolioData = {}
+      portfolioData.docId = docId
+      portfolioData.uid = uid
+      portfolioData.url = this.url
+      portfolioData.description = this.description
+      portfolioData.captureUrl = captureUrl
+
       if (docId) {
-        dbUpdateRes = db.collection('portfolio').doc(docId)
+        await this.$store.dispatch('portfolio/updatePortfolio', { portfolioData })
       } else {
-        dbUpdateRes = db.collection('portfolio').doc()
+        await this.$store.dispatch('portfolio/publishPortfolio', { portfolioData })
       }
-      await dbUpdateRes
-        .set({
-          uid: uid,
-          url: this.url,
-          description: this.description,
-          captureUrl: captureUrl,
-          createdAt: new Date()
-        })
-        .catch(err => {
-          console.error('Error: Add Document', err)
-          throw err
-        })
-      console.log(dbUpdateRes)
       this.$router.push('/')
+    },
+    async uploadCapture() {
+      const storage = firebase.storage()
+      const storageRef = storage.ref('images/')
+      const uploadRef = storageRef.child(uid)
+      await uploadRef.put(selectFileObjct)
+      const captureUrl = await uploadRef.getDownloadURL()
+      return captureUrl
     },
     setFile(e) {
       const selectFile = e.target.files
