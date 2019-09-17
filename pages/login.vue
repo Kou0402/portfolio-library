@@ -39,14 +39,14 @@ export default {
   created: function() {
     firebase.auth().onAuthStateChanged(user => {
       this.isWaiting = false
-      if (user) {
-        this.isLogin = true
-        this.user = user
-        this.$router.push('/post')
-      } else {
+      if (!user) {
         this.isLogin = false
         this.user = []
+        return user
       }
+      this.isLogin = true
+      this.user = user
+      this.$router.push('/post')
     })
   },
   methods: {
