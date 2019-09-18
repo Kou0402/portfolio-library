@@ -4,9 +4,12 @@
       <h2>あなたのポートフォリオを投稿しよう</h2>
       <h3>説明</h3>
       <input v-model="description" type="text" />
+      <p>{{ descriptionCharaCount }} / 60</p>
       <h3>URL<span>*</span></h3>
       <input v-model="url" type="text" name="url" />
-      <button type="button" @click="postPortfolio">投稿</button>
+      <button type="button" :disabled="isOverCharaCountLimit || isEmptyForm" @click="postPortfolio">
+        投稿
+      </button>
       <input type="file" accept="image/*" @change="setSelectedFile" />
     </form>
     <router-link to="/" class="link">戻る</router-link>
@@ -26,6 +29,20 @@ export default {
     return {
       description: '',
       url: ''
+    }
+  },
+  computed: {
+    descriptionCharaCount: function() {
+      return this.description.length
+    },
+    urlCharaCount: function() {
+      return this.url.length
+    },
+    isOverCharaCountLimit: function() {
+      return this.descriptionCharaCount >= 60 || this.urlCharaCount >= 2000
+    },
+    isEmptyForm: function() {
+      return this.description.length === 0 || this.url.length === 0
     }
   },
   async created() {
