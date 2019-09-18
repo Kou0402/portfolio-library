@@ -55,7 +55,7 @@ export default {
       if (!selectedFileObject) return ''
       const storageRef = firebase
         .storage()
-        .ref('images/')
+        .ref('image/portfolio/')
         .child(uid)
       await storageRef.put(selectedFileObject)
       const captureUrl = await storageRef.getDownloadURL()
