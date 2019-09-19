@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main @scroll="infiniteScroll">
     <section class="contents-area">
       <PortfolioCard
         v-for="item in portfolioData"
@@ -21,12 +21,31 @@ export default {
   },
   data() {
     return {
-      portfolioData: []
+      portfolioData: [],
+      startScrollYOffset: 0
     }
   },
-  async created() {
-    await this.$store.dispatch('portfolio/fetchPortfolios')
-    this.portfolioData = this.$store.getters['portfolio/portfolios']
+  created() {
+    this.setPortfolio()
+  },
+  mounted() {
+    this.setInfiniteScrollSetting()
+  },
+  methods: {
+    async setPortfolio() {
+      await this.$store.dispatch('portfolio/fetchPortfolios')
+      this.portfolioData = this.$store.getters['portfolio/portfolios']
+    },
+    setInfiniteScrollSetting() {
+      window.addEventListener('scroll', this.infiniteScroll)
+      this.startScrollYOffset = Math.floor(window.innerHeight / 3)
+    },
+    infiniteScroll() {
+      if (window.pageYOffset >= this.startScrollYOffset) {
+        this.startScrollYOffset = window.innerHeight + window.pageYOffset
+        this.setPortfolio()
+      }
+    }
   }
 }
 </script>

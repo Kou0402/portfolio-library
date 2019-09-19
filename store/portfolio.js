@@ -1,5 +1,6 @@
 import firebase from '~/plugins/firebase.js'
 const db = firebase.firestore()
+let lastDocument = null
 
 export const state = () => ({
   portfolio: '',
@@ -16,7 +17,9 @@ export const mutations = {
     state.portfolio = portfolio
   },
   addPortfolios(state, portfolios) {
-    state.portfolios = portfolios
+    portfolios.forEach(function(portfolio) {
+      state.portfolios.push(portfolio)
+    })
   }
 }
 
@@ -39,10 +42,13 @@ export const actions = {
       })
     commit('addPortfolio', portfolioData)
   },
-  async fetchPortfolios({ commit }) {
+  async fetchPortfolios({ commit }, orderBase = 'createdAt', order = 'asc', limit = 5) {
     const portfolioData = []
     await db
       .collection('portfolio')
+      .orderBy(orderBase, order)
+      .startAfter(lastDocument)
+      .limit(limit)
       .get()
       .then(querySnapshot => {
         querySnapshot.forEach(documents => {
@@ -54,6 +60,7 @@ export const actions = {
           tempData.captureUrl = document.captureUrl
           portfolioData.push(tempData)
         })
+        lastDocument = querySnapshot.docs[querySnapshot.docs.length - 1]
       })
       .catch(error => {
         console.log(error)

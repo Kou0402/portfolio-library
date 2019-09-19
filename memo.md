@@ -31,3 +31,19 @@ db.collection("hoge").where("foo", "==", true)
 ```
 this.$store.getters['hogeFile/hoge']
 ```
+
+## Firestoreから分割して取得
+```
+firebase.firestore().db
+  .collection('hoge')
+  .orderBy(createdAt, asc)
+  .startAfter(lastDocument)
+  .limit(10)
+  .get()
+  .then(querySnapshot => {
+    querySnapshot.forEach(documents => {
+      // dataにバインド
+    })
+    lastDocument = querySnapshot.docs[querySnapshot.docs.length - 1]
+  })
+```
