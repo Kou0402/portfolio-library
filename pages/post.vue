@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <section>
     <form class="form-area">
       <h2>あなたのポートフォリオを投稿しよう</h2>
       <h3>説明</h3>
@@ -14,7 +14,7 @@
     </form>
     <router-link to="/" class="link">戻る</router-link>
     <button @click="logOut">ログアウト</button>
-  </main>
+  </section>
 </template>
 
 <script>
