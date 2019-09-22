@@ -19,7 +19,7 @@
   background-color: $main-color2;
   padding: 0 20vw;
   .link-button-wrapper {
-    height: 9vh;
+    height: 8vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -31,7 +31,6 @@
       text-decoration: none;
       letter-spacing: 0.1vw;
       padding: 1.5rem;
-      // box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
     }
     .link-button:hover {
       box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);

@@ -9,7 +9,7 @@
 <style lang="scss" scoped>
 .main-message {
   background-color: $base-color;
-  height: 22vh;
+  height: 19vh;
   display: flex;
   align-items: center;
   justify-content: center;

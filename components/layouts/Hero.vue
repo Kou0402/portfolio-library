@@ -7,7 +7,7 @@
 <style lang="scss" scoped>
 .hero {
   background-color: $main-color1;
-  height: 15vh;
+  height: 14vh;
   display: flex;
   align-items: center;
   justify-content: center;
