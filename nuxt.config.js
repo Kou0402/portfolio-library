@@ -24,7 +24,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: ['normalize.css', '@/assets/style/style.scss'],
+  css: ['@/assets/style/reset.css', '@/assets/style/style.scss'],
 
   /*
    ** Style Resources
