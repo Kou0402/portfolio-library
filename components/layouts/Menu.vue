@@ -1,13 +1,13 @@
 <template>
   <nav class="menu">
     <div class="link-button-wrapper">
-      <nuxt-link class="link-button" to="/">
+      <nuxt-link to="/" class="link-button">
         Top
       </nuxt-link>
-      <nuxt-link class="link-button" to="login">
+      <nuxt-link to="login" class="link-button">
         Post
       </nuxt-link>
-      <nuxt-link class="link-button" to="contact">
+      <nuxt-link to="contact" class="link-button">
         Contact
       </nuxt-link>
     </div>

@@ -27,9 +27,9 @@ export default {
 
 <style lang="scss" scoped>
 .menu-conponent {
-  margin: 0 10vw;
+  margin: 0 9vw;
 }
 .main-conponent {
-  margin: 0 10vw;
+  margin: 4vh 9vw;
 }
 </style>

@@ -1,15 +1,14 @@
 <template>
-  <main @scroll="infiniteScroll">
-    <section class="contents-area">
-      <PortfolioCard
-        v-for="item in portfolioData"
-        :key="item.id"
-        :url="item.url"
-        :description="item.description"
-        :capture-url="item.captureUrl"
-      ></PortfolioCard>
-    </section>
-  </main>
+  <section class="portfolio-area" @scroll="infiniteScroll">
+    <PortfolioCard
+      v-for="item in portfolioData"
+      :key="item.id"
+      :url="item.url"
+      :description="item.description"
+      :capture-url="item.captureUrl"
+      class="portfolio-card-component"
+    ></PortfolioCard>
+  </section>
 </template>
 
 <script>
@@ -51,22 +50,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-main {
-  .contents-area {
-    width: 80%;
-    margin: 3rem auto 0;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+.portfolio-area {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 0 2vw;
+  .portfolio-card-component {
+    margin: 2vh;
   }
 }
 
 @media screen and (max-width: 896px) {
-  main {
-    .contents-area {
-      width: 100%;
-      margin: 0;
-    }
-  }
 }
 </style>

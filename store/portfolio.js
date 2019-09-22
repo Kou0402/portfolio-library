@@ -42,7 +42,7 @@ export const actions = {
       })
     commit('addPortfolio', portfolioData)
   },
-  async fetchPortfolios({ commit }, orderBase = 'createdAt', order = 'asc', limit = 5) {
+  async fetchPortfolios({ commit }, orderBase = 'createdAt', order = 'asc', limit = 9) {
     const portfolioData = []
     await db
       .collection('portfolio')
