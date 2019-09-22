@@ -47,7 +47,7 @@ export default {
     height: 7rem;
     box-shadow: initial;
     margin: 0;
-    border-bottom: solid 3px $main-color;
+    border-bottom: solid 3px $main-color2;
     padding: 0;
     display: flex;
     flex-direction: row-reverse;
