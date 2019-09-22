@@ -17,7 +17,6 @@
 <style lang="scss" scoped>
 .menu {
   background-color: $main-color2;
-  margin: 0 10vw;
   padding: 0 20vw;
   .link-button-wrapper {
     height: 9vh;

@@ -3,10 +3,10 @@
     <header>
       <Hero></Hero>
       <MainMessage></MainMessage>
-      <Menu></Menu>
+      <Menu class="menu-conponent"></Menu>
     </header>
     <main>
-      <nuxt />
+      <nuxt class="main-conponent" />
     </main>
   </div>
 </template>
@@ -24,3 +24,12 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.menu-conponent {
+  margin: 0 10vw;
+}
+.main-conponent {
+  margin: 0 10vw;
+}
+</style>
