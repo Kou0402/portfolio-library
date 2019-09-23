@@ -1,19 +1,37 @@
 <template>
-  <section>
+  <section class="post-area">
     <form class="form-area">
-      <h2>あなたのポートフォリオを投稿しよう</h2>
-      <h3>説明</h3>
-      <input v-model="title" type="text" />
-      <p>{{ titleCharaCount }} / 60</p>
-      <h3>URL<span>*</span></h3>
-      <input v-model="url" type="text" name="url" />
-      <button type="button" :disabled="isOverCharaCountLimit || isEmptyForm" @click="postPortfolio">
+      <div class="url-form-area">
+        <h3 class="form-title">サイトURL</h3>
+        <input v-model="url" type="text" name="url" class="text-form" />
+      </div>
+      <div class="title-form-area">
+        <h3 class="form-title">サイトタイトル</h3>
+        <input v-model="title" type="text" class="text-form" />
+        <p class="title-chara-count">{{ titleCharaCount }} / 42</p>
+      </div>
+      <div class="file-form-area">
+        <h3 class="form-title">サイト画像</h3>
+        <input type="file" accept="image/*" class="file-form" @change="setSelectedFile" />
+        <p class="file-form-notes">
+          ※参考：ページスクリーンショットChromeプラグイン<a
+            href="https://chrome.google.com/webstore/detail/take-webpage-screenshots/
+            mcbpblocgmgfnpjjppndjkmgjaogfceg?hl=ja"
+            class="file-form-notes-link"
+            >『FireShot』</a
+          >
+        </p>
+      </div>
+      <button
+        type="button"
+        :disabled="isOverCharaCountLimit || isEmptyForm"
+        class="post-button"
+        @click="postPortfolio"
+      >
         投稿
       </button>
-      <input type="file" accept="image/*" @change="setSelectedFile" />
     </form>
-    <router-link to="/" class="link">戻る</router-link>
-    <button @click="logOut">ログアウト</button>
+    <button class="logout-button" @click="logout">ログアウト</button>
   </section>
 </template>
 
@@ -86,7 +104,7 @@ export default {
         selectedFileObject = ''
       }
     },
-    logOut() {
+    logout() {
       firebase.auth().signOut()
       this.$router.push('/')
     }
@@ -94,4 +112,72 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.post-area {
+  display: flex;
+  flex-flow: column;
+  .form-area {
+    height: 48vh;
+    display: flex;
+    flex-flow: column;
+    .url-form-area,
+    .title-form-area,
+    .file-form-area,
+    .post-button {
+      color: $main-color2;
+      margin: 1.7vh auto;
+      width: 60%;
+    }
+    .title-chara-count {
+      font-size: 1.3rem;
+      margin-top: 10px;
+    }
+    .form-title {
+      font-size: 2rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .text-form {
+      color: $accent-color2;
+      height: 30px;
+      width: 100%;
+      font-size: 1.5rem;
+    }
+    .file-form {
+      color: $accent-color2;
+      font-size: 1.3rem;
+    }
+    .file-form-notes {
+      color: $accent-color2;
+      font-size: 1.3rem;
+      margin-top: 5px;
+      .file-form-notes-link {
+        color: $main-color2;
+        text-decoration: none;
+      }
+    }
+    .post-button {
+      color: $base-color;
+      background: $accent-color1;
+      font-size: 1.3rem;
+      width: 140px;
+      display: inline-block;
+      padding: 0.5em 1em;
+      text-decoration: none;
+      border-bottom: solid 4px $accent-color2;
+      border-radius: 3px;
+    }
+    .post-button:active {
+      transform: translateY(4px);
+      box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+      border-bottom: none;
+    }
+    .post-button:focus {
+      outline: none;
+    }
+  }
+  .logout-button {
+    margin: auto;
+  }
+}
+</style>
