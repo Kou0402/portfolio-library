@@ -15,8 +15,7 @@
         <input type="file" accept="image/*" class="file-form" @change="setSelectedFile" />
         <p class="file-form-notes">
           ※参考：ページスクリーンショットChromeプラグイン<a
-            href="https://chrome.google.com/webstore/detail/take-webpage-screenshots/
-            mcbpblocgmgfnpjjppndjkmgjaogfceg?hl=ja"
+            href="https://chrome.google.com/webstore/detail/take-webpage-screenshots/mcbpblocgmgfnpjjppndjkmgjaogfceg?hl=ja"
             class="file-form-notes-link"
             >『FireShot』</a
           >
