@@ -30,6 +30,6 @@ export default {
   margin: 0 9vw;
 }
 .main-conponent {
-  margin: 4vh 9vw;
+  margin: 3vh 9vw;
 }
 </style>
