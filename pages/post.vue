@@ -16,6 +16,7 @@
         <p class="file-form-notes">
           ※参考：ページスクリーンショットChromeプラグイン<a
             href="https://chrome.google.com/webstore/detail/take-webpage-screenshots/mcbpblocgmgfnpjjppndjkmgjaogfceg?hl=ja"
+            target="_blank"
             class="file-form-notes-link"
             >『FireShot』</a
           >
