@@ -4,7 +4,7 @@
       v-for="item in portfolioData"
       :key="item.id"
       :url="item.url"
-      :description="item.description"
+      :title="item.title"
       :capture-url="item.captureUrl"
       class="portfolio-card-component"
     ></PortfolioCard>

@@ -32,7 +32,7 @@ export const actions = {
       .get()
       .then(querySnapshot => {
         querySnapshot.forEach(function(document) {
-          portfolioData.description = document.data().description
+          portfolioData.title = document.data().title
           portfolioData.url = document.data().url
           portfolioData.docId = document.id
         })
@@ -55,7 +55,7 @@ export const actions = {
           const document = documents.data()
           const tempData = {}
           tempData.docId = documents.id
-          tempData.description = document.description
+          tempData.title = document.title
           tempData.url = document.url
           tempData.captureUrl = document.captureUrl
           portfolioData.push(tempData)
@@ -74,7 +74,7 @@ export const actions = {
       .set({
         uid: portfolioData.uid,
         url: portfolioData.url,
-        description: portfolioData.description,
+        title: portfolioData.title,
         captureUrl: portfolioData.captureUrl,
         createdAt: new Date()
       })
@@ -90,7 +90,7 @@ export const actions = {
       .set({
         uid: portfolioData.uid,
         url: portfolioData.url,
-        description: portfolioData.description,
+        title: portfolioData.title,
         captureUrl: portfolioData.captureUrl,
         createdAt: new Date()
       })

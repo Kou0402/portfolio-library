@@ -3,8 +3,8 @@
     <form class="form-area">
       <h2>あなたのポートフォリオを投稿しよう</h2>
       <h3>説明</h3>
-      <input v-model="description" type="text" />
-      <p>{{ descriptionCharaCount }} / 60</p>
+      <input v-model="title" type="text" />
+      <p>{{ titleCharaCount }} / 60</p>
       <h3>URL<span>*</span></h3>
       <input v-model="url" type="text" name="url" />
       <button type="button" :disabled="isOverCharaCountLimit || isEmptyForm" @click="postPortfolio">
@@ -27,28 +27,28 @@ let selectedFileObject = ''
 export default {
   data() {
     return {
-      description: '',
+      title: '',
       url: ''
     }
   },
   computed: {
-    descriptionCharaCount: function() {
-      return this.description.length
+    titleCharaCount: function() {
+      return this.title.length
     },
     urlCharaCount: function() {
       return this.url.length
     },
     isOverCharaCountLimit: function() {
-      return this.descriptionCharaCount >= 60 || this.urlCharaCount >= 2000
+      return this.titleCharaCount >= 60 || this.urlCharaCount >= 2000
     },
     isEmptyForm: function() {
-      return this.description.length === 0 || this.url.length === 0
+      return this.title.length === 0 || this.url.length === 0
     }
   },
   async created() {
     await this.$store.dispatch('portfolio/fetchPortfolio', uid)
     const portfolioData = this.$store.getters['portfolio/portfolio']
-    this.description = portfolioData.description
+    this.title = portfolioData.title
     this.url = portfolioData.url
     docId = portfolioData.docId
   },
@@ -59,7 +59,7 @@ export default {
       portfolioData.docId = docId
       portfolioData.uid = uid
       portfolioData.url = this.url
-      portfolioData.description = this.description
+      portfolioData.title = this.title
       portfolioData.captureUrl = captureUrl
       if (docId) {
         await this.$store.dispatch('portfolio/updatePortfolio', { portfolioData })

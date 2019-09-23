@@ -1,7 +1,7 @@
 <template>
   <a :href="url" class="portfolio-card">
     <img :src="captureUrl" class="portfolio-capture" />
-    <p class="portfolio-description">{{ description }}</p>
+    <p class="portfolio-title">{{ title }}</p>
   </a>
 </template>
 
@@ -12,7 +12,7 @@ export default {
       type: String,
       default: ''
     },
-    description: {
+    title: {
       type: String,
       default: ''
     },
@@ -34,7 +34,7 @@ export default {
     width: 100%;
     height: 75%;
   }
-  .portfolio-description {
+  .portfolio-title {
     color: $accent-color1;
     font-size: 1.5rem;
     padding: 10px;
