@@ -177,7 +177,18 @@ export default {
     }
   }
   .logout-button {
+    color: $accent-color2;
+    border: solid 2px $main-color2;
+    border-radius: 3px;
+    text-decoration: none;
+    transition: 0.4s;
+    padding: 0.3em 1em;
     margin: auto;
+    display: inline-block;
+  }
+  .logout-button:hover {
+    color: white;
+    background: $main-color2;
   }
 }
 </style>
