@@ -1,15 +1,16 @@
 import firebase from '~/plugins/firebase.js'
 const db = firebase.firestore()
-let lastDocument = null
 
 export const state = () => ({
   portfolio: '',
-  portfolios: []
+  portfolios: [],
+  lastData: null
 })
 
 export const getters = {
   portfolio: state => state.portfolio,
-  portfolios: state => state.portfolios
+  portfolios: state => state.portfolios,
+  lastData: state => state.lastData
 }
 
 export const mutations = {
@@ -20,6 +21,9 @@ export const mutations = {
     portfolios.forEach(function(portfolio) {
       state.portfolios.push(portfolio)
     })
+  },
+  updateLastData(state, lastData) {
+    state.lastData = lastData
   }
 }
 
@@ -42,12 +46,13 @@ export const actions = {
       })
     commit('addPortfolio', portfolioData)
   },
-  async fetchPortfolios({ commit }, orderBase = 'createdAt', order = 'asc', limit = 9) {
+  async fetchPortfolios({ commit, getters }, orderBase = 'createdAt', order = 'asc', limit = 9) {
     const portfolioData = []
+    let lastData = getters.lastData
     await db
       .collection('portfolio')
       .orderBy(orderBase, order)
-      .startAfter(lastDocument)
+      .startAfter(lastData)
       .limit(limit)
       .get()
       .then(querySnapshot => {
@@ -60,7 +65,8 @@ export const actions = {
           tempData.captureUrl = document.captureUrl
           portfolioData.push(tempData)
         })
-        lastDocument = querySnapshot.docs[querySnapshot.docs.length - 1]
+        lastData = querySnapshot.docs[querySnapshot.docs.length - 1].data()[orderBase]
+        commit('updateLastData', lastData)
       })
       .catch(error => {
         console.log(error)
