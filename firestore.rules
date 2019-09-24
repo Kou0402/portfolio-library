@@ -3,8 +3,8 @@ service cloud.firestore {
 
     match /portfolio /{portfolioId} {
       allow read;
-      allow create: if isLoginUser() && validateUrl() && validateDescription()
-      allow update: if isCreateUser() && validateUrl() && validateDescription()
+      allow create: if isLoginUser() && validateUrl() && validateTitle()
+      allow update: if isCreateUser() && validateUrl() && validateTitle()
     }
 
     function isLoginUser() {
@@ -28,11 +28,11 @@ service cloud.firestore {
     	return validateLength(getUrl(), 2000)
     }
 
-    function getDescription() {
-    	return getIncomingData().description
+    function getTitle() {
+    	return getIncomingData().title
     }
-    function validateDescription() {
-    	return validateLength(getDescription(), 60)
+    function validateTitle() {
+    	return validateLength(getTitle(), 42)
     }
   }
 }
