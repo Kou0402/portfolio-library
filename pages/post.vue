@@ -46,7 +46,8 @@ export default {
   data() {
     return {
       title: '',
-      url: ''
+      url: '',
+      captureUrl: ''
     }
   },
   computed: {
@@ -68,6 +69,7 @@ export default {
     const portfolioData = this.$store.getters['portfolio/portfolio']
     this.title = portfolioData.title
     this.url = portfolioData.url
+    this.captureUrl = portfolioData.captureUrl
     docId = portfolioData.docId
   },
   methods: {
@@ -87,7 +89,7 @@ export default {
       this.$router.push('/')
     },
     async uploadCapture() {
-      if (!selectedFileObject) return ''
+      if (!selectedFileObject) return this.captureUrl
       const storageRef = firebase
         .storage()
         .ref('image/portfolio/')

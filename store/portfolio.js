@@ -44,6 +44,7 @@ export const actions = {
         querySnapshot.forEach(function(document) {
           portfolioData.title = document.data().title
           portfolioData.url = document.data().url
+          portfolioData.captureUrl = document.data().captureUrl
           portfolioData.docId = document.id
         })
       })
