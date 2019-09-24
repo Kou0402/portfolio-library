@@ -38,13 +38,13 @@
 <script>
 import firebase from '~/plugins/firebase.js'
 
-const uid = firebase.auth().currentUser.uid
 let docId = ''
 let selectedFileObject = ''
 
 export default {
   data() {
     return {
+      uid: '',
       title: '',
       url: '',
       captureUrl: ''
@@ -65,19 +65,23 @@ export default {
     }
   },
   async created() {
-    await this.$store.dispatch('portfolio/fetchPortfolio', uid)
+    this.checkLogin()
+
+    await this.$store.dispatch('portfolio/fetchPortfolio', this.uid)
     const portfolioData = this.$store.getters['portfolio/portfolio']
-    this.title = portfolioData.title
-    this.url = portfolioData.url
-    this.captureUrl = portfolioData.captureUrl
-    docId = portfolioData.docId
+    if (portfolioData.docId) {
+      this.title = portfolioData.title
+      this.url = portfolioData.url
+      this.captureUrl = portfolioData.captureUrl
+      docId = portfolioData.docId
+    }
   },
   methods: {
     async postPortfolio() {
       const captureUrl = await this.uploadCapture()
       const portfolioData = {}
       portfolioData.docId = docId
-      portfolioData.uid = uid
+      portfolioData.uid = this.uid
       portfolioData.url = this.url
       portfolioData.title = this.title
       portfolioData.captureUrl = captureUrl
@@ -93,7 +97,7 @@ export default {
       const storageRef = firebase
         .storage()
         .ref('image/portfolio/')
-        .child(uid)
+        .child(this.uid)
       await storageRef.put(selectedFileObject)
       const captureUrl = await storageRef.getDownloadURL()
       return captureUrl
@@ -104,6 +108,14 @@ export default {
         selectedFileObject = new File(e.target.files, { type: 'image/jpeg' })
       } else {
         selectedFileObject = ''
+      }
+    },
+    checkLogin() {
+      const currentUser = firebase.auth().currentUser
+      if (currentUser) {
+        this.uid = currentUser.uid
+      } else {
+        this.$router.push('/login')
       }
     },
     logout() {
