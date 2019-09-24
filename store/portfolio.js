@@ -22,8 +22,14 @@ export const mutations = {
       state.portfolios.push(portfolio)
     })
   },
+  initializePortfolios(state) {
+    state.portfolios = []
+  },
   updateLastData(state, lastData) {
     state.lastData = lastData
+  },
+  initializeLastData(state) {
+    state.lastData = null
   }
 }
 
@@ -46,7 +52,7 @@ export const actions = {
       })
     commit('addPortfolio', portfolioData)
   },
-  async fetchPortfolios({ commit, getters }, orderBase = 'createdAt', order = 'asc', limit = 9) {
+  async fetchPortfolios({ commit, getters }, orderBase = 'createdAt', order = 'asc', limit = 7) {
     const portfolioData = []
     let lastData = getters.lastData
     await db
@@ -72,6 +78,9 @@ export const actions = {
         console.log(error)
       })
     commit('addPortfolios', portfolioData)
+  },
+  initializePortfolios({ commit }) {
+    commit('initializePortfolios')
   },
   async publishPortfolio({ commit }, { portfolioData }) {
     await db
@@ -104,5 +113,8 @@ export const actions = {
         console.log(error)
       })
     commit('addPortfolio', portfolioData)
+  },
+  initializeLastData({ commit }) {
+    commit('initializeLastData')
   }
 }

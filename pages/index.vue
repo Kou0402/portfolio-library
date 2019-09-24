@@ -25,6 +25,8 @@ export default {
     }
   },
   created() {
+    this.$store.dispatch('portfolio/initializePortfolios')
+    this.$store.dispatch('portfolio/initializeLastData')
     this.setPortfolio()
   },
   mounted() {
