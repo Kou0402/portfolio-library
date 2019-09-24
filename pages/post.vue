@@ -58,7 +58,7 @@ export default {
       return this.url.length
     },
     isOverCharaCountLimit: function() {
-      return this.titleCharaCount >= 60 || this.urlCharaCount >= 2000
+      return this.titleCharaCount >= 42 || this.urlCharaCount >= 2000
     },
     isEmptyForm: function() {
       return this.title.length === 0 || this.url.length === 0
@@ -176,6 +176,11 @@ export default {
     }
     .post-button:focus {
       outline: none;
+    }
+    .post-button:disabled {
+      color: rgba(0, 0, 0, 0.1);
+      background: rgba(0, 0, 0, 0.1);
+      border-bottom: solid 4px rgba(0, 0, 0, 0.1);
     }
   }
   .logout-button {
