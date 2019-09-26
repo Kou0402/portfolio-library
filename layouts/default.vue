@@ -32,4 +32,13 @@ export default {
 .main-conponent {
   margin: 3vh 9vw;
 }
+
+@media screen and (max-width: 896px) {
+  .menu-conponent {
+    margin: 0;
+  }
+  .main-conponent {
+    margin: 0;
+  }
+}
 </style>
