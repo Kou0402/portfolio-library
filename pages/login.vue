@@ -102,4 +102,26 @@ export default {
     }
   }
 }
+
+@media screen and (max-width: 896px) {
+  .waiting-message-area {
+    align-items: center;
+    line-height: 12vh;
+    text-align: center;
+    .waiting-message {
+      color: $main-color2;
+      font-weight: 500;
+      font-size: 2rem;
+      letter-spacing: 0.2vw;
+    }
+  }
+  .login-area {
+    .login-message-area {
+      .login-message {
+        font-size: 1.7rem;
+        letter-spacing: 0.1vw;
+      }
+    }
+  }
+}
 </style>
