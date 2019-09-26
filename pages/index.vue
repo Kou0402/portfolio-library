@@ -63,5 +63,14 @@ export default {
 }
 
 @media screen and (max-width: 896px) {
+  .portfolio-area {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 0 2vw;
+    .portfolio-card-component {
+      margin: 1vh 0;
+    }
+  }
 }
 </style>

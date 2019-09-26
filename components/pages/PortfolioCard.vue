@@ -46,5 +46,19 @@ export default {
 }
 
 @media screen and (max-width: 896px) {
+  .portfolio-card {
+    width: 170px;
+    height: 130px;
+    box-shadow: 2px 2px 7px 3px rgba(0, 0, 0, 0.2);
+    .portfolio-capture {
+      width: 100%;
+      height: 70%;
+    }
+    .portfolio-title {
+      font-size: 1rem;
+      padding: 4px;
+      line-height: 1rem;
+    }
+  }
 }
 </style>
