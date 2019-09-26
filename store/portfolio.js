@@ -53,7 +53,7 @@ export const actions = {
       })
     commit('addPortfolio', portfolioData)
   },
-  async fetchPortfolios({ commit, getters }, orderBase = 'createdAt', order = 'asc', limit = 7) {
+  async fetchPortfolios({ commit, getters }, orderBase = 'createdAt', order = 'asc', limit = 12) {
     const portfolioData = []
     let lastData = getters.lastData
     await db
