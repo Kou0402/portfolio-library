@@ -38,7 +38,7 @@ export default {
     margin: 0;
   }
   .main-conponent {
-    margin: 0;
+    margin: 1vh 0;
   }
 }
 </style>
