@@ -31,4 +31,17 @@ export default {
     width: 70px;
   }
 }
+
+@media screen and (max-width: 896px) {
+  .contact-area {
+    .contact-message {
+      font-size: 1.5rem;
+      letter-spacing: 0.1vw;
+      margin: 5vh 2vw;
+    }
+    .twitter-icon img {
+      width: 60px;
+    }
+  }
+}
 </style>
