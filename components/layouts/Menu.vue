@@ -40,4 +40,15 @@
     }
   }
 }
+
+@media screen and (max-width: 896px) {
+  .menu {
+    padding: 0 5vw;
+    .link-button-wrapper {
+      .link-button {
+        font-size: 1.6rem;
+      }
+    }
+  }
+}
 </style>
