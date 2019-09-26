@@ -1,7 +1,8 @@
 <template>
   <section class="main-message">
     <h2 class="message">
-      あなたのポートフォリオを共有しよう<br />ポートフォリオ共有サイト『Portfolio Library』
+      あなたのポートフォリオを共有しよう<br />ポートフォリオ共有サイト<br class="message-br" />
+      『Portfolio Library』
     </h2>
   </section>
 </template>
@@ -20,6 +21,22 @@
     letter-spacing: 0.5vw;
     line-height: 6.5vh;
     font-weight: 500;
+    .message-br {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: 896px) {
+  .main-message {
+    height: 13vh;
+    .message {
+      font-size: 1.5rem;
+      line-height: 3.5vh;
+      .message-br {
+        display: initial;
+      }
+    }
   }
 }
 </style>
