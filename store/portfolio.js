@@ -53,14 +53,15 @@ export const actions = {
       })
     commit('addPortfolio', portfolioData)
   },
-  async fetchPortfolios({ commit, getters }, orderBase = 'createdAt', order = 'asc', limit = 12) {
+  async fetchPortfolios({ commit, getters }, orderBase = 'createdAt', order = 'desc', limit = 12) {
     const portfolioData = []
     let lastData = getters.lastData
-    await db
+    let query = db
       .collection('portfolio')
       .orderBy(orderBase, order)
-      .startAfter(lastData)
       .limit(limit)
+    if (lastData) query = query.startAfter(lastData)
+    await query
       .get()
       .then(querySnapshot => {
         querySnapshot.forEach(documents => {
