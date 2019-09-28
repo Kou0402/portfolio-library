@@ -1,7 +1,15 @@
 service firebase.storage {
   match /b/{bucket}/o {
-    match /{allPaths=**} {
-      allow read, write: if request.auth!=null;
+    match /image/portfolio {
+      allow read;
+      allow write: if isLoginUser()
+    }
+    match /image/etc {
+      allow read;
+    }
+
+    function isLoginUser() {
+    	return request.auth != null
     }
   }
 }
