@@ -1,10 +1,10 @@
 service firebase.storage {
   match /b/{bucket}/o {
-    match /image/portfolio {
+    match /image/portfolio/{allPaths=**} {
       allow read;
       allow write: if isLoginUser()
     }
-    match /image/etc {
+    match /image/etc/{allPaths=**} {
       allow read;
     }
 
