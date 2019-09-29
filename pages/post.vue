@@ -1,5 +1,8 @@
 <template>
-  <section class="post-area">
+  <section v-if="isPosting" class="posting-message-area">
+    <p class="posting-message">投稿中...</p>
+  </section>
+  <section v-else class="post-area">
     <form class="form-area">
       <div class="url-form-area">
         <h3 class="form-title">サイトURL</h3>
@@ -15,7 +18,8 @@
         <input type="file" accept="image/*" class="file-form" @change="setSelectedFile" />
         <p class="file-form-notes">
           ※参考：ページスクリーンショットChromeプラグイン<a
-            href="https://chrome.google.com/webstore/detail/take-webpage-screenshots/mcbpblocgmgfnpjjppndjkmgjaogfceg?hl=ja"
+            href="https://chrome.google.com/webstore/detail/take-webpage-screenshots
+            /mcbpblocgmgfnpjjppndjkmgjaogfceg?hl=ja"
             target="_blank"
             class="file-form-notes-link"
             >『FireShot』</a
@@ -47,7 +51,8 @@ export default {
       uid: '',
       title: '',
       url: '',
-      captureUrl: ''
+      captureUrl: '',
+      isPosting: false
     }
   },
   computed: {
@@ -78,6 +83,7 @@ export default {
   },
   methods: {
     async postPortfolio() {
+      this.isPosting = true
       const captureUrl = await this.uploadCapture()
       const portfolioData = {}
       portfolioData.docId = docId
@@ -127,6 +133,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.posting-message-area {
+  align-items: center;
+  line-height: 12vh;
+  text-align: center;
+  .posting-message {
+    color: $main-color2;
+    font-weight: 500;
+    font-size: 2rem;
+    letter-spacing: 0.2vw;
+  }
+}
 .post-area {
   display: flex;
   flex-flow: column;
