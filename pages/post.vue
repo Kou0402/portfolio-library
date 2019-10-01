@@ -232,7 +232,10 @@ export default {
 @media screen and (max-width: 896px) {
   .post-area {
     .form-area {
-      .file-form-area {
+      .url-form-area,
+      .title-form-area,
+      .file-form-area,
+      .post-button {
         width: 300px;
       }
       .title-chara-count {
