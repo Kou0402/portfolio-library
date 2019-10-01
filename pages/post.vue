@@ -76,7 +76,7 @@ export default {
       return this.url.length
     },
     isOverCharaCountLimit: function() {
-      return this.titleCharaCount >= 36 || this.urlCharaCount >= 2000
+      return this.titleCharaCount > 36 || this.urlCharaCount > 2000
     },
     isEmptyForm: function() {
       return this.title.length === 0 || this.url.length === 0
