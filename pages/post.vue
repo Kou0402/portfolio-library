@@ -15,7 +15,14 @@
       </div>
       <div class="file-form-area">
         <h3 class="form-title">サイト画像</h3>
-        <input type="file" accept="image/*" class="file-form" @change="setSelectedFile" />
+        <croppa
+          v-model="selectedFile"
+          :width="300"
+          :height="200"
+          placeholder="ファイルを選択"
+          :placeholder-font-size="16"
+          remove-button-color="#464159"
+        ></croppa>
         <p class="file-form-notes">
           ※参考：ページスクリーンショットChromeプラグイン<a
             href="https://chrome.google.com/webstore/detail/take-webpage-screenshots
@@ -41,9 +48,12 @@
 
 <script>
 import firebase from '~/plugins/firebase.js'
+import Vue from 'vue'
+import Croppa from 'vue-croppa'
+import 'vue-croppa/dist/vue-croppa.css'
+Vue.use(Croppa)
 
 let docId = ''
-let selectedFileObject = ''
 
 export default {
   data() {
@@ -52,6 +62,7 @@ export default {
       title: '',
       url: '',
       captureUrl: '',
+      selectedFile: {},
       isPosting: false
     }
   },
@@ -99,22 +110,15 @@ export default {
       this.$router.push('/')
     },
     async uploadCapture() {
-      if (!selectedFileObject) return this.captureUrl
+      if (!this.selectedFile.hasImage()) return this.captureUrl
+      const selectedFileBlob = await this.selectedFile.promisedBlob('image/jpeg')
       const storageRef = firebase
         .storage()
         .ref('image/portfolio/')
         .child(this.uid)
-      await storageRef.put(selectedFileObject)
+      await storageRef.put(selectedFileBlob)
       const captureUrl = await storageRef.getDownloadURL()
       return captureUrl
-    },
-    setSelectedFile(e) {
-      const selectedFile = e.target.files
-      if (selectedFile.length) {
-        selectedFileObject = new File(e.target.files, { type: 'image/jpeg' })
-      } else {
-        selectedFileObject = ''
-      }
     },
     checkLogin() {
       const currentUser = firebase.auth().currentUser
