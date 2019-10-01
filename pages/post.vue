@@ -179,10 +179,6 @@ export default {
       width: 100%;
       font-size: 1.5rem;
     }
-    .file-form {
-      // color: $accent-color2;
-      // font-size: 1.3rem;
-    }
     .file-form-notes {
       color: $accent-color2;
       font-size: 1.3rem;
@@ -236,13 +232,8 @@ export default {
 @media screen and (max-width: 896px) {
   .post-area {
     .form-area {
-      height: 48vh;
-      .url-form-area,
-      .title-form-area,
-      .file-form-area,
-      .post-button {
-        margin: 1.7vh auto;
-        width: 60%;
+      .file-form-area {
+        width: 300px;
       }
       .title-chara-count {
         font-size: 1.3rem;
@@ -257,10 +248,6 @@ export default {
         width: 100%;
         font-size: 1.3rem;
         border: 1px solid $main-color2;
-      }
-      .file-form {
-        color: $accent-color2;
-        font-size: 1.2rem;
       }
       .file-form-notes {
         display: none;
