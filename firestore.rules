@@ -32,7 +32,7 @@ service cloud.firestore {
     	return getIncomingData().title
     }
     function validateTitle() {
-    	return validateLength(getTitle(), 36)
+    	return validateLength(getTitle(), 32)
     }
   }
 }
