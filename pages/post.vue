@@ -11,7 +11,7 @@
       <div class="title-form-area">
         <h3 class="form-title">サイトタイトル</h3>
         <input v-model="title" type="text" class="text-form" />
-        <p class="title-chara-count">{{ titleCharaCount }} / 42</p>
+        <p class="title-chara-count">{{ titleCharaCount }} / 36</p>
       </div>
       <div class="file-form-area">
         <h3 class="form-title">サイト画像</h3>
@@ -76,7 +76,7 @@ export default {
       return this.url.length
     },
     isOverCharaCountLimit: function() {
-      return this.titleCharaCount >= 42 || this.urlCharaCount >= 2000
+      return this.titleCharaCount >= 36 || this.urlCharaCount >= 2000
     },
     isEmptyForm: function() {
       return this.title.length === 0 || this.url.length === 0
