@@ -26,13 +26,13 @@ export default {
 
 <style lang="scss" scoped>
 .portfolio-card {
-  width: 340px;
-  height: 240px;
+  width: 300px;
+  height: 260px;
   box-shadow: 3px 3px 10px 5px rgba(0, 0, 0, 0.1);
   text-decoration: none;
   .portfolio-capture {
-    width: 100%;
-    height: 75%;
+    width: 300px;
+    height: 200px;
   }
   .portfolio-title {
     color: $accent-color1;
