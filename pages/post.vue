@@ -22,6 +22,8 @@
           placeholder="ファイルを選択"
           :placeholder-font-size="16"
           remove-button-color="#464159"
+          :prevent-white-space="true"
+          class="file-form"
         ></croppa>
         <p class="file-form-notes">
           ※参考：ページスクリーンショットChromeプラグイン<a
@@ -152,7 +154,6 @@ export default {
   display: flex;
   flex-flow: column;
   .form-area {
-    height: 48vh;
     display: flex;
     flex-flow: column;
     .url-form-area,
@@ -179,8 +180,8 @@ export default {
       font-size: 1.5rem;
     }
     .file-form {
-      color: $accent-color2;
-      font-size: 1.3rem;
+      // color: $accent-color2;
+      // font-size: 1.3rem;
     }
     .file-form-notes {
       color: $accent-color2;
