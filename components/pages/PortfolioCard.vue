@@ -1,6 +1,9 @@
 <template>
   <a :href="url" class="portfolio-card">
-    <img :src="captureUrl" class="portfolio-capture" />
+    <img v-if="captureUrl" :src="captureUrl" class="portfolio-capture" />
+    <div v-else class="no-image">
+      <h3 class="no-image-message">No image</h3>
+    </div>
     <p class="portfolio-title">{{ title }}</p>
   </a>
 </template>
@@ -33,6 +36,18 @@ export default {
   .portfolio-capture {
     width: 300px;
     height: 200px;
+  }
+  .no-image {
+    background-color: $main-color1;
+    width: 300px;
+    height: 200px;
+    .no-image-message {
+      color: $base-color;
+      text-align: center;
+      line-height: 200px;
+      font-size: 2rem;
+      letter-spacing: 0.4vw;
+    }
   }
   .portfolio-title {
     color: $accent-color1;
