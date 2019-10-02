@@ -179,6 +179,9 @@ export default {
       width: 100%;
       font-size: 1.5rem;
     }
+    .file-form {
+      background-color: $main-color1;
+    }
     .file-form-notes {
       color: $accent-color2;
       font-size: 1.3rem;
