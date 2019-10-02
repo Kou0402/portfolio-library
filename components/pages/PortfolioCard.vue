@@ -38,7 +38,7 @@ export default {
     height: 200px;
   }
   .no-image {
-    background-color: $main-color1;
+    background-color: $accent-color2;
     width: 300px;
     height: 200px;
     .no-image-message {
@@ -50,7 +50,7 @@ export default {
     }
   }
   .portfolio-title {
-    color: $accent-color1;
+    color: $main-color1;
     font-size: 1.5rem;
     padding: 10px;
     line-height: 2rem;

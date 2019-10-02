@@ -24,7 +24,7 @@
     justify-content: space-around;
     align-items: center;
     .link-button {
-      color: $accent-color1;
+      color: $base-color;
       font-size: 2.2rem;
       width: 10rem;
       text-align: center;

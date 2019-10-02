@@ -12,7 +12,7 @@
   align-items: center;
   justify-content: center;
   .title {
-    color: $accent-color1;
+    color: $base-color;
     font-size: 3.7rem;
     letter-spacing: 0.8vw;
   }

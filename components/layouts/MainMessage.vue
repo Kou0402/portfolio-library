@@ -15,7 +15,7 @@
   align-items: center;
   justify-content: center;
   .message {
-    color: $main-color2;
+    color: $main-color1;
     text-align: center;
     font-size: 2.2rem;
     letter-spacing: 0.5vw;
