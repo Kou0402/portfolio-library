@@ -55,7 +55,7 @@ export default {
   line-height: 12vh;
   text-align: center;
   .waiting-message {
-    color: $main-color2;
+    color: $main-color1;
     font-weight: 500;
     font-size: 2rem;
     letter-spacing: 0.2vw;
@@ -71,7 +71,7 @@ export default {
     text-align: center;
     margin: 5vh 5vw;
     .login-message {
-      color: $main-color2;
+      color: $main-color1;
       font-weight: 500;
       font-size: 2rem;
       letter-spacing: 0.2vw;

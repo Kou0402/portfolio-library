@@ -144,7 +144,7 @@ export default {
   line-height: 12vh;
   text-align: center;
   .posting-message {
-    color: $main-color2;
+    color: $main-color1;
     font-weight: 500;
     font-size: 2rem;
     letter-spacing: 0.2vw;
@@ -160,7 +160,7 @@ export default {
     .title-form-area,
     .file-form-area,
     .post-button {
-      color: $main-color2;
+      color: $main-color1;
       margin: 1.7vh auto;
       width: 60%;
     }
@@ -174,20 +174,20 @@ export default {
       margin-bottom: 1rem;
     }
     .text-form {
-      color: $accent-color2;
+      color: $main-color2;
       height: 30px;
       width: 100%;
       font-size: 1.5rem;
     }
     .file-form {
-      background-color: $main-color1;
+      background-color: $accent-color2;
     }
     .file-form-notes {
-      color: $accent-color2;
+      color: $main-color2;
       font-size: 1.3rem;
       margin-top: 5px;
       .file-form-notes-link {
-        color: $main-color2;
+        color: $accent-color1;
         text-decoration: none;
       }
     }
@@ -217,8 +217,8 @@ export default {
     }
   }
   .logout-button {
-    color: $accent-color2;
-    border: solid 2px $main-color2;
+    color: $main-color2;
+    border: solid 2px $accent-color1;
     border-radius: 3px;
     text-decoration: none;
     transition: 0.4s;
@@ -228,7 +228,7 @@ export default {
   }
   .logout-button:hover {
     color: white;
-    background: $main-color2;
+    background: $accent-color1;
   }
 }
 

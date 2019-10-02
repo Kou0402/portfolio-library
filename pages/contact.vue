@@ -21,7 +21,7 @@ export default {
 .contact-area {
   text-align: center;
   .contact-message {
-    color: $main-color2;
+    color: $main-color1;
     font-weight: 500;
     font-size: 2rem;
     letter-spacing: 0.2vw;
