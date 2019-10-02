@@ -18,6 +18,7 @@
 .menu {
   background-color: $main-color2;
   padding: 0 20vw;
+  border-radius: 7px;
   .link-button-wrapper {
     height: 8vh;
     display: flex;
