@@ -69,6 +69,13 @@ export default {
       width: 170px;
       height: 113px;
     }
+    .no-image {
+      width: 170px;
+      height: 113px;
+      .no-image-message {
+        line-height: 113px;
+      }
+    }
     .portfolio-title {
       font-size: 1rem;
       padding: 4px;
