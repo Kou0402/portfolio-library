@@ -1,7 +1,7 @@
 <template>
   <section class="main-message">
     <h2 class="message">
-      あなたのポートフォリオを共有しよう<br />ポートフォリオ共有サイト<br class="message-br" />
+      -あなたのポートフォリオを共有しよう-<br />ポートフォリオ共有サイト<br class="message-br" />
       『Portfolio Library』
     </h2>
   </section>
