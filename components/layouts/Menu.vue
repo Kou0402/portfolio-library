@@ -32,12 +32,23 @@
       text-decoration: none;
       letter-spacing: 0.1vw;
       padding: 1.5rem;
+      position: relative;
+      display: inline-block;
     }
-    .link-button:hover {
-      box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.4);
+    .link-button::after {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      content: '';
+      width: 100%;
+      height: 2px;
+      background: $base-color;
+      transform: scale(0, 1);
+      transform-origin: center top;
+      transition: transform 0.3s;
     }
-    .link-button:active {
-      box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    .link-button:hover::after {
+      transform: scale(1, 1);
     }
   }
 }
