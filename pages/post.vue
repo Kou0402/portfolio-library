@@ -249,7 +249,6 @@ export default {
         font-size: 1.8rem;
       }
       .text-form {
-        color: $accent-color2;
         height: 20px;
         width: 100%;
         font-size: 1.3rem;
