@@ -47,6 +47,7 @@
     padding: 0 5vw;
     border-radius: initial;
     .link-button-wrapper {
+      height: 6vh;
       .link-button {
         font-size: 1.6rem;
       }

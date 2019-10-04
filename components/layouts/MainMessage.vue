@@ -29,7 +29,7 @@
 
 @media screen and (max-width: 896px) {
   .main-message {
-    height: 13vh;
+    height: 11vh;
     .message {
       font-size: 1.5rem;
       line-height: 3.5vh;

@@ -20,7 +20,7 @@
 
 @media screen and (max-width: 896px) {
   .hero {
-    height: 23vh;
+    height: 18vh;
     .title {
       font-size: 2.8rem;
     }
