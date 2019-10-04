@@ -1,6 +1,8 @@
 <template>
   <section class="hero">
-    <h1 class="title">Portfolio Library</h1>
+    <transition name="title-transition" appear>
+      <h1 class="title">Portfolio Library</h1>
+    </transition>
   </section>
 </template>
 
@@ -16,6 +18,14 @@
     font-size: 3.7rem;
     letter-spacing: 0.8vw;
   }
+}
+
+/* transition */
+.title-transition-enter {
+  opacity: 0;
+}
+.title-transition-enter-active {
+  transition: opacity 2s;
 }
 
 @media screen and (max-width: 896px) {
