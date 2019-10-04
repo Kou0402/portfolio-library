@@ -50,6 +50,18 @@
     .link-button:hover::after {
       transform: scale(1, 1);
     }
+    .nuxt-link-exact-active::after {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      content: '';
+      width: 100%;
+      height: 2px;
+      background: $base-color;
+      transform: scale(1, 1);
+      transform-origin: center top;
+      transition: transform 0.3s;
+    }
   }
 }
 
