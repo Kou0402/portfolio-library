@@ -6,12 +6,15 @@ jobs:
     working_directory: ~/portfolio-library
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v1-yarn-packages-
       - run:
           name: package install
           command: yarn install
+      - save_cache:
+      name: Save yarn package cache
+      paths:
+        - ~/.cache/yarn
+      key:
+        v1-yarn-packages-{{ checksum "yarn.lock" }}
       - run:
           name: Add env
           command: |
