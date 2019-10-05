@@ -14,9 +14,15 @@
       </p>
     </div>
     <div class="login-button-area">
-      <button class="login-button" @click="googleLogin">Googleでログイン</button>
-      <button class="login-button" @click="twitterLogin">Twitterでログイン</button>
-      <button class="login-button" @click="githubLogin">GitHubでログイン</button>
+      <button class="login-button" @click="googleLogin">
+        <img :src="googleIconPath" class="login-icon" /> Googleでログイン
+      </button>
+      <button class="login-button" @click="twitterLogin">
+        <img :src="twitterIconPath" class="login-icon" /> Twitterでログイン
+      </button>
+      <button class="login-button" @click="githubLogin">
+        <img :src="githubIconPath" class="login-icon" />GitHubでログイン
+      </button>
     </div>
   </section>
 </template>
@@ -27,7 +33,10 @@ import firebase from '@/plugins/firebase'
 export default {
   data() {
     return {
-      isWaiting: true
+      isWaiting: true,
+      googleIconPath: require('~/assets/image/' + 'Google_Icon.svg'),
+      twitterIconPath: require('~/assets/image/' + 'Twitter_Icon.svg'),
+      githubIconPath: require('~/assets/image/' + 'Github_Icon.svg')
     }
   },
   created() {
@@ -101,6 +110,11 @@ export default {
       text-decoration: none;
       border-bottom: solid 4px $accent-color2;
       border-radius: 3px;
+      .login-icon {
+        width: 18px;
+        margin-right: 3px;
+        vertical-align: middle;
+      }
     }
     .login-button:active {
       transform: translateY(4px);
