@@ -16,6 +16,7 @@
     <div class="login-button-area">
       <button class="login-button" @click="googleLogin">Googleでログイン</button>
       <button class="login-button" @click="twitterLogin">Twitterでログイン</button>
+      <button class="login-button" @click="githubLogin">GitHubでログイン</button>
     </div>
   </section>
 </template>
@@ -45,6 +46,10 @@ export default {
     },
     twitterLogin() {
       const provider = new firebase.auth.TwitterAuthProvider()
+      firebase.auth().signInWithRedirect(provider)
+    },
+    githubLogin() {
+      const provider = new firebase.auth.GithubAuthProvider()
       firebase.auth().signInWithRedirect(provider)
     },
     logOut() {
