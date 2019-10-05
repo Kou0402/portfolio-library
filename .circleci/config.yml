@@ -21,7 +21,7 @@ jobs:
             echo "APP_ID=$APP_ID" >> .env
       - run:
           name: build
-          command: yarn run build
+          command: yarn run generate
       - run:
           name: deploy to Firebase Hosting
           command: ./node_modules/.bin/firebase deploy --token=$FIREBASE_TOKEN
