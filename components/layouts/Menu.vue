@@ -4,15 +4,48 @@
       <nuxt-link to="/" class="link-button">
         Top
       </nuxt-link>
-      <nuxt-link to="login" class="link-button">
+
+      <!-- Branch the tab to apply the active style -->
+      <nuxt-link v-if="isLogin" to="post" class="link-button">
         Post
       </nuxt-link>
+      <nuxt-link v-else to="login" class="link-button">
+        Post
+      </nuxt-link>
+
       <nuxt-link to="contact" class="link-button">
         Contact
       </nuxt-link>
     </div>
   </nav>
 </template>
+
+<script>
+import firebase from '@/plugins/firebase'
+
+export default {
+  data() {
+    return {
+      isLogin: false
+    }
+  },
+  created() {
+    this.checkAuth()
+  },
+  methods: {
+    async checkAuth() {
+      const self = this
+      await firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+          self.isLogin = true
+        } else {
+          self.isLogin = false
+        }
+      })
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 .menu {
