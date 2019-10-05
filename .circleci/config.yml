@@ -5,10 +5,10 @@ jobs:
       - image: circleci/node:11
     working_directory: ~/portfolio-library
     steps:
+      - checkout
       - restore_cache:
           keys:
-            - v1-yarn-packages-{{ checksum "yarn.lock" }}
-      - checkout
+            - v1-yarn-packages-
       - run:
           name: package install
           command: yarn install
