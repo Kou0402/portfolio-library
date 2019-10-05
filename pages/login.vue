@@ -34,9 +34,9 @@ export default {
   data() {
     return {
       isWaiting: true,
-      googleIconPath: require('~/assets/image/' + 'google_Icon.svg'),
-      twitterIconPath: require('~/assets/image/' + 'twitter_Icon.svg'),
-      githubIconPath: require('~/assets/image/' + 'github_Icon.svg')
+      googleIconPath: require('~/assets/image/' + 'google_icon.svg'),
+      twitterIconPath: require('~/assets/image/' + 'twitter_icon.svg'),
+      githubIconPath: require('~/assets/image/' + 'github_icon.svg')
     }
   },
   created() {
