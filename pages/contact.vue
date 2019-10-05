@@ -11,7 +11,7 @@
 export default {
   data() {
     return {
-      twitterIconPath: require('~/assets/image/' + 'Twitter_Icon.svg')
+      twitterIconPath: require('~/assets/image/' + 'twitter_Icon.svg')
     }
   }
 }
