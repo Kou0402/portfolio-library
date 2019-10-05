@@ -6,8 +6,7 @@ jobs:
     working_directory: ~/portfolio-library
     steps:
       - restore_cache:
-        keys:
-        - v1-dependencies-
+        key: v1-dependencies-
       - checkout
       - run:
           name: package install
