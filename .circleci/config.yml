@@ -5,6 +5,10 @@ jobs:
       - image: circleci/node:11
     working_directory: ~/portfolio-library
     steps:
+      - restore_cache:
+        keys:
+        - v1-dependencies-{{ checksum "requirements.txt" }}
+        - v1-dependencies-
       - checkout
       - run:
           name: package install
