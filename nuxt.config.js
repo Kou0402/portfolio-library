@@ -1,5 +1,3 @@
-import pkg from './package'
-
 export default {
   mode: 'spa',
 
@@ -7,11 +5,16 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: pkg.name,
+    title: 'Portfolio Library',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      {
+        hid: 'description',
+        name: 'description',
+        content:
+          'Portfolio Libraryはエンジニア・デザイナーのためのポートフォリオ共有サイトです。あなたの作成したポートフォリオを公開したり、他の人が公開しているポートフォリオを見ることができます。'
+      }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
