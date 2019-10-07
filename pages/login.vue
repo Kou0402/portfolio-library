@@ -135,6 +135,7 @@ export default {
   }
   .login-area {
     .login-message-area {
+      margin: 3vh 3vw;
       .login-message {
         font-size: 1.7rem;
         letter-spacing: 0.1vw;
