@@ -1,6 +1,6 @@
 <template>
   <a :href="url" class="portfolio-card">
-    <img v-if="captureUrl" :src="captureUrl" class="portfolio-capture" />
+    <img v-if="captureUrl" :src="captureUrl" :alt="title" class="portfolio-capture" />
     <div v-else class="no-image">
       <h3 class="no-image-message">No image</h3>
     </div>
