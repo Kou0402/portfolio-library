@@ -53,23 +53,20 @@ export default {
 
 <style lang="scss" scoped>
 .portfolio-area {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  padding: 0 2vw;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  padding: 0 4rem;
   .portfolio-card-component {
-    margin: 2vh;
+    margin: 1.8rem auto;
   }
 }
 
 @media screen and (max-width: 896px) {
   .portfolio-area {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    padding: 0 2vw;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    padding: 0 1vw;
     .portfolio-card-component {
-      margin: 1vh 0;
+      margin: 0.8rem auto;
     }
   }
 }
