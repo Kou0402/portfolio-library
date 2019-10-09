@@ -3,6 +3,9 @@ jobs:
   build:
     docker:
       - image: circleci/node:11
+    branches:
+      only:
+        - master
     working_directory: ~/portfolio-library
     steps:
       - checkout
