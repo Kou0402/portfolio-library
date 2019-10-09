@@ -14,7 +14,7 @@
         <p class="title-chara-count">{{ titleCharaCount }} / 32</p>
       </div>
       <div class="file-form-area">
-        <h3 class="form-title">サイト画像</h3>
+        <h3 class="form-title">サイト画像<span class="capture-ratio">（400×300）</span></h3>
         <croppa
           v-model="selectedFile"
           :width="300"
@@ -163,6 +163,9 @@ export default {
       color: $main-color1;
       margin: 1.7vh auto;
       width: 60%;
+      .capture-ratio {
+        font-size: 1.5rem;
+      }
     }
     .title-chara-count {
       font-size: 1.3rem;
