@@ -13,7 +13,9 @@ export default {
         hid: 'description',
         name: 'description',
         content:
-          'PortfolioLibraryはエンジニア・デザイナーのためのポートフォリオ共有サイトです。あなたの作成したポートフォリオを公開したり、他の人が公開しているポートフォリオを見ることができます。'
+          'PortfolioLibrary(ポートフォリオライブラリ)はエンジニア・デザイナーのための' +
+          'ポートフォリオ共有サイトです。あなたの作成したポートフォリオを公開したり、' +
+          '他の人が公開しているポートフォリオを見ることができます。'
       }
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
